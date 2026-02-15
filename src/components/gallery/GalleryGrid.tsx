@@ -6,18 +6,18 @@ import { AnimatedStagger, AnimatedItem } from '@/components/ui/AnimatedSection';
 import LightboxModal from './LightboxModal';
 
 const galleryItems = [
-  { id: 1, title: 'Elegant French Tips', color: 'from-pink-200 to-rose-300' },
-  { id: 2, title: 'Gel Ombre Design', color: 'from-purple-200 to-pink-300' },
-  { id: 3, title: 'Chrome Nail Art', color: 'from-gray-200 to-blue-200' },
-  { id: 4, title: 'Floral Nail Design', color: 'from-green-100 to-pink-200' },
-  { id: 5, title: 'Glitter Acrylic Set', color: 'from-amber-200 to-yellow-300' },
-  { id: 6, title: 'Marble Effect Nails', color: 'from-gray-100 to-gray-300' },
-  { id: 7, title: 'Bridal Nail Set', color: 'from-white to-pink-100' },
-  { id: 8, title: 'Neon Summer Nails', color: 'from-orange-200 to-pink-300' },
-  { id: 9, title: 'Minimalist Design', color: 'from-stone-100 to-stone-200' },
-  { id: 10, title: 'Holiday Nail Art', color: 'from-red-200 to-green-200' },
-  { id: 11, title: 'Dip Powder Ombre', color: 'from-rose-200 to-purple-200' },
-  { id: 12, title: 'Abstract Nail Art', color: 'from-blue-200 to-indigo-200' },
+  { id: 1, title: 'Elegant French Tips', color: 'from-amber-50 to-amber-100' },
+  { id: 2, title: 'Gel Ombre Design', color: 'from-stone-100 to-amber-100' },
+  { id: 3, title: 'Chrome Nail Art', color: 'from-gray-100 to-stone-200' },
+  { id: 4, title: 'Floral Nail Design', color: 'from-amber-50 to-stone-100' },
+  { id: 5, title: 'Glitter Acrylic Set', color: 'from-amber-100 to-yellow-100' },
+  { id: 6, title: 'Marble Effect Nails', color: 'from-stone-50 to-stone-200' },
+  { id: 7, title: 'Bridal Nail Set', color: 'from-white to-amber-50' },
+  { id: 8, title: 'Neon Summer Nails', color: 'from-amber-100 to-orange-100' },
+  { id: 9, title: 'Minimalist Design', color: 'from-stone-50 to-stone-100' },
+  { id: 10, title: 'Holiday Nail Art', color: 'from-amber-50 to-stone-150' },
+  { id: 11, title: 'Dip Powder Ombre', color: 'from-stone-100 to-amber-50' },
+  { id: 12, title: 'Abstract Nail Art', color: 'from-amber-100 to-stone-200' },
 ];
 
 export default function GalleryGrid() {
