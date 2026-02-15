@@ -1,4 +1,3 @@
-import { kv } from '@vercel/kv';
 import { Appointment, Service, Technician } from '@/types';
 import { services as defaultServices } from './services';
 import { technicians as defaultTechnicians } from './technicians';
@@ -9,14 +8,39 @@ const KEYS = {
   technicians: 'van-nails:technicians',
 };
 
+// Check if Vercel KV is configured
+function isKvConfigured(): boolean {
+  return !!(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN);
+}
+
+// In-memory fallback for local development without KV
+const memoryStore: Record<string, unknown> = {};
+
+async function kvGet<T>(key: string): Promise<T | null> {
+  if (!isKvConfigured()) {
+    return (memoryStore[key] as T) ?? null;
+  }
+  const { kv } = await import('@vercel/kv');
+  return kv.get<T>(key);
+}
+
+async function kvSet(key: string, value: unknown): Promise<void> {
+  if (!isKvConfigured()) {
+    memoryStore[key] = value;
+    return;
+  }
+  const { kv } = await import('@vercel/kv');
+  await kv.set(key, value);
+}
+
 // Appointments
 export async function getAppointments(): Promise<Appointment[]> {
-  const data = await kv.get<Appointment[]>(KEYS.appointments);
+  const data = await kvGet<Appointment[]>(KEYS.appointments);
   return data ?? [];
 }
 
 export async function saveAppointments(appointments: Appointment[]): Promise<void> {
-  await kv.set(KEYS.appointments, appointments);
+  await kvSet(KEYS.appointments, appointments);
 }
 
 export async function addAppointment(appointment: Appointment): Promise<Appointment> {
@@ -45,20 +69,20 @@ export async function deleteAppointment(id: string): Promise<boolean> {
 
 // Services
 export async function getServices(): Promise<Service[]> {
-  const data = await kv.get<Service[]>(KEYS.services);
+  const data = await kvGet<Service[]>(KEYS.services);
   return data ?? defaultServices;
 }
 
 export async function saveServices(services: Service[]): Promise<void> {
-  await kv.set(KEYS.services, services);
+  await kvSet(KEYS.services, services);
 }
 
 // Technicians
 export async function getTechnicians(): Promise<Technician[]> {
-  const data = await kv.get<Technician[]>(KEYS.technicians);
+  const data = await kvGet<Technician[]>(KEYS.technicians);
   return data ?? defaultTechnicians;
 }
 
 export async function saveTechnicians(technicians: Technician[]): Promise<void> {
-  await kv.set(KEYS.technicians, technicians);
+  await kvSet(KEYS.technicians, technicians);
 }

@@ -4,8 +4,12 @@ import { Appointment } from '@/types';
 import { generateId } from '@/lib/utils';
 
 export async function GET() {
-  const appointments = await getAppointments();
-  return NextResponse.json(appointments);
+  try {
+    const appointments = await getAppointments();
+    return NextResponse.json(appointments);
+  } catch {
+    return NextResponse.json([], { status: 200 });
+  }
 }
 
 export async function POST(request: NextRequest) {

@@ -4,8 +4,12 @@ import { Technician } from '@/types';
 import { generateId } from '@/lib/utils';
 
 export async function GET() {
-  const technicians = await getTechnicians();
-  return NextResponse.json(technicians);
+  try {
+    const technicians = await getTechnicians();
+    return NextResponse.json(technicians);
+  } catch {
+    return NextResponse.json([], { status: 200 });
+  }
 }
 
 export async function POST(request: NextRequest) {
