@@ -25,7 +25,7 @@ export default function AppointmentCard({
       <div className="flex items-start justify-between gap-4 mb-3">
         <div>
           <h4 className="font-bold text-dark">{appointment.customerName}</h4>
-          <p className="text-sm text-dark/50">{appointment.time}</p>
+          <p className="text-sm text-dark/50">{appointment.date} &middot; {appointment.time}</p>
         </div>
         <Badge variant={statusVariant[appointment.status]}>
           {appointment.status.charAt(0).toUpperCase() + appointment.status.slice(1)}

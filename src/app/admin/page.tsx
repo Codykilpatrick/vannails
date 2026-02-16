@@ -5,7 +5,8 @@ import AdminAuthGuard from '@/components/admin/AdminAuthGuard';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import AppointmentCalendar from '@/components/admin/AppointmentCalendar';
 import AppointmentList from '@/components/admin/AppointmentList';
-import { Appointment, AppointmentStatus } from '@/types';
+import AddAppointmentForm from '@/components/admin/AddAppointmentForm';
+import { Appointment, AppointmentStatus, Service, Technician } from '@/types';
 import { technicians } from '@/data/technicians';
 
 export default function AdminPage() {
@@ -14,6 +15,7 @@ export default function AdminPage() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [technicianFilter, setTechnicianFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
+  const [showAddForm, setShowAddForm] = useState(false);
 
   const fetchAppointments = useCallback(async () => {
     const res = await fetch('/api/appointments');
@@ -24,6 +26,26 @@ export default function AdminPage() {
   useEffect(() => {
     fetchAppointments();
   }, [fetchAppointments]);
+
+  const handleAddAppointment = async (data: {
+    customerName: string;
+    customerPhone: string;
+    customerEmail: string;
+    services: Service[];
+    technician: Technician | null;
+    date: string;
+    time: string;
+    guestCount: number;
+    totalPrice: number;
+  }) => {
+    await fetch('/api/appointments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    setShowAddForm(false);
+    fetchAppointments();
+  };
 
   const handleStatusChange = async (id: string, status: AppointmentStatus) => {
     await fetch(`/api/appointments/${id}`, {
@@ -51,7 +73,25 @@ export default function AdminPage() {
         <AdminSidebar />
 
         <div className="flex-1 p-8 overflow-auto">
-          <h1 className="text-2xl font-bold text-dark mb-8">Appointments</h1>
+          <div className="flex items-center justify-between mb-8">
+            <h1 className="text-2xl font-bold text-dark">Appointments</h1>
+            {!showAddForm && (
+              <button
+                onClick={() => setShowAddForm(true)}
+                className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primary-dark transition-colors"
+              >
+                + Add Appointment
+              </button>
+            )}
+          </div>
+
+          {/* Add appointment form */}
+          {showAddForm && (
+            <AddAppointmentForm
+              onAdd={handleAddAppointment}
+              onCancel={() => setShowAddForm(false)}
+            />
+          )}
 
           {/* Today's summary */}
           {todayAppointments.length > 0 && (
