@@ -49,9 +49,9 @@ export default function AppointmentCalendar({
   const todayStr = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-sm">
+    <div className="bg-white rounded-xl p-4 shadow-sm">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-3">
         <button
           onClick={() => onChangeMonth(-1)}
           className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -60,7 +60,7 @@ export default function AppointmentCalendar({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        <h3 className="text-lg font-bold">{monthLabel}</h3>
+        <h3 className="text-sm font-bold">{monthLabel}</h3>
         <button
           onClick={() => onChangeMonth(1)}
           className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -72,9 +72,9 @@ export default function AppointmentCalendar({
       </div>
 
       {/* Day headers */}
-      <div className="grid grid-cols-7 gap-1 mb-2">
-        {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-          <div key={day} className="text-center text-xs font-medium text-gray-400 py-2">
+      <div className="grid grid-cols-7 gap-1 mb-1">
+        {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
+          <div key={i} className="text-center text-xs font-medium text-gray-400 py-1">
             {day}
           </div>
         ))}
@@ -97,7 +97,7 @@ export default function AppointmentCalendar({
               key={dateStr}
               onClick={() => onSelectDate(dateStr)}
               className={cn(
-                'relative aspect-square flex flex-col items-center justify-center rounded-lg text-sm transition-all',
+                'relative flex flex-col items-center justify-center rounded-lg text-sm transition-all py-1.5',
                 isSelected
                   ? 'bg-primary text-white'
                   : isToday
@@ -109,7 +109,7 @@ export default function AppointmentCalendar({
               {count > 0 && (
                 <span
                   className={cn(
-                    'text-[10px] font-bold mt-0.5',
+                    'text-[10px] font-bold leading-none',
                     isSelected ? 'text-white/80' : 'text-primary'
                   )}
                 >

@@ -43,7 +43,7 @@ export default function AdminServicesPage() {
 
   return (
     <AdminAuthGuard>
-      <div className="flex min-h-screen bg-gray-50">
+      <div className="flex min-h-screen bg-gray-50 pt-14 md:pt-0">
         <AdminSidebar />
 
         <div className="flex-1 p-8 overflow-auto">

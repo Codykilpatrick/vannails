@@ -24,7 +24,9 @@ export default function AppointmentList({
     filtered = filtered.filter((a) => a.date === selectedDate);
   }
   if (technicianFilter) {
-    filtered = filtered.filter((a) => a.technician?.id === technicianFilter);
+    filtered = filtered.filter((a) =>
+      technicianFilter === 'unassigned' ? !a.technician : a.technician?.id === technicianFilter
+    );
   }
   if (statusFilter) {
     filtered = filtered.filter((a) => a.status === statusFilter);

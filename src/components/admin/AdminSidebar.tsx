@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -14,15 +15,16 @@ const navItems = [
 export default function AdminSidebar() {
   const pathname = usePathname();
   const router = useRouter();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem('admin_token');
     router.push('/admin/login');
   };
 
-  return (
-    <aside className="w-64 bg-dark min-h-screen p-6 flex flex-col shrink-0">
-      <Link href="/admin" className="text-xl font-bold text-primary mb-10">
+  const sidebarContent = (
+    <>
+      <Link href="/admin" className="text-xl font-bold text-primary mb-10" onClick={() => setMobileOpen(false)}>
         Van Nails Admin
       </Link>
 
@@ -33,6 +35,7 @@ export default function AdminSidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => setMobileOpen(false)}
               className={cn(
                 'flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors',
                 isActive
@@ -69,6 +72,43 @@ export default function AdminSidebar() {
           Logout
         </button>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Mobile top bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-40 bg-dark flex items-center justify-between px-4 py-3">
+        <span className="text-lg font-bold text-primary">Van Nails Admin</span>
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="text-white p-2"
+          aria-label="Toggle admin menu"
+        >
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {mobileOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile slide-out overlay */}
+      {mobileOpen && (
+        <div className="md:hidden fixed inset-0 z-50">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setMobileOpen(false)} />
+          <aside className="relative w-64 bg-dark min-h-screen p-6 flex flex-col">
+            {sidebarContent}
+          </aside>
+        </div>
+      )}
+
+      {/* Desktop sidebar */}
+      <aside className="hidden md:flex w-64 bg-dark min-h-screen p-6 flex-col shrink-0">
+        {sidebarContent}
+      </aside>
+    </>
   );
 }

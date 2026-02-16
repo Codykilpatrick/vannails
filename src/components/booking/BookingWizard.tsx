@@ -73,7 +73,10 @@ const slideVariants = {
 export default function BookingWizard() {
   const [state, dispatch] = useReducer(bookingReducer, initialState);
 
-  const goTo = (step: number) => dispatch({ type: 'SET_STEP', step });
+  const goTo = (step: number) => {
+    dispatch({ type: 'SET_STEP', step });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const direction = 1; // always forward for animation purposes
 
   return (

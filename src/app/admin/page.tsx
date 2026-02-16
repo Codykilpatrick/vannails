@@ -69,7 +69,7 @@ export default function AdminPage() {
 
   return (
     <AdminAuthGuard>
-      <div className="flex min-h-screen bg-gray-50">
+      <div className="flex min-h-screen bg-gray-50 pt-14 md:pt-0">
         <AdminSidebar />
 
         <div className="flex-1 p-8 overflow-auto">
@@ -128,6 +128,7 @@ export default function AdminPage() {
                   className="px-3 py-2 rounded-lg border border-gray-200 text-sm outline-none focus:border-primary"
                 >
                   <option value="">All Technicians</option>
+                  <option value="unassigned">Unassigned</option>
                   {technicians.map((t) => (
                     <option key={t.id} value={t.id}>
                       {t.name}
