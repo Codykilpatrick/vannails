@@ -43,7 +43,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <span className="text-2xl font-bold font-[family-name:var(--font-heading)] text-dark">
-              Van <span className="text-primary">Nails</span>
+              Vivid <span className="text-primary">Nails</span>
             </span>
           </Link>
 

@@ -3,9 +3,9 @@ import { services as defaultServices } from './services';
 import { technicians as defaultTechnicians } from './technicians';
 
 const KEYS = {
-  appointments: 'van-nails:appointments',
-  services: 'van-nails:services',
-  technicians: 'van-nails:technicians',
+  appointments: 'vivid-nails:appointments',
+  services: 'vivid-nails:services',
+  technicians: 'vivid-nails:technicians',
 };
 
 // Check if Vercel KV is configured

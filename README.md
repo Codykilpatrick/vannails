@@ -25,7 +25,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 Create a `.env.local` file in the project root:
 
 ```
-ADMIN_PASSWORD=vannails2024
+ADMIN_PASSWORD=vividnails2024
 
 # Auto-populated when you link a Vercel KV store
 KV_REST_API_URL=
@@ -84,4 +84,4 @@ npm run build
 
 - **Phone:** (540) 764-2843
 - **Address:** 15315 Montanus Dr, Culpeper, VA 22701
-- **Instagram:** [@vannailsculpeper](https://www.instagram.com/vannailsculpeper/)
+- **Instagram:** [@vividnailsculpeper](https://www.instagram.com/vividnailsculpeper/)
