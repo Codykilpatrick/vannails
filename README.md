@@ -1,6 +1,6 @@
-# Van Nails — Culpeper, VA
+# Vivid Nails — Culpeper, VA
 
-Custom website for Van Nails nail salon located at 15315 Montanus Dr, Culpeper, VA 22701.
+Custom website for Vivid Nails nail salon located at 15315 Montanus Dr, Culpeper, VA 22701.
 
 ## Tech Stack
 

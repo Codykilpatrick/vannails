@@ -24,7 +24,7 @@ export default function HeroSection() {
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-12 h-px bg-primary" />
             <span className="text-primary font-medium text-sm tracking-[0.25em] uppercase">
-              Welcome to Van Nails
+              Welcome to Vivid Nails
             </span>
             <div className="w-12 h-px bg-primary" />
           </div>

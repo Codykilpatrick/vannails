@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-dark p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-primary mb-2">Van Nails</h1>
+          <h1 className="text-3xl font-bold text-primary mb-2">Vivid Nails</h1>
           <p className="text-white/60">Admin Dashboard</p>
         </div>
 

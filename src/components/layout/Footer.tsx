@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-primary mb-4">Van Nails</h3>
+            <h3 className="text-2xl font-bold text-primary mb-4">Vivid Nails</h3>
             <p className="text-white/60 text-sm leading-relaxed">
               Premium nail care and spa services in a relaxing, modern environment. Your beauty, our passion.
             </p>
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-white/40">
-          <p>&copy; {new Date().getFullYear()} Van Nails. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Vivid Nails. All rights reserved.</p>
         </div>
       </div>
     </footer>

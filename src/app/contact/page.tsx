@@ -5,8 +5,8 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export const metadata: Metadata = {
-  title: 'Contact | Van Nails',
-  description: 'Get in touch with Van Nails. Visit us, call, or send a message.',
+  title: 'Contact | Vivid Nails',
+  description: 'Get in touch with Vivid Nails. Visit us, call, or send a message.',
 };
 
 export default function ContactPage() {

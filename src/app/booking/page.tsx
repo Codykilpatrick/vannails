@@ -4,7 +4,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export const metadata: Metadata = {
-  title: 'Book Appointment | Van Nails',
+  title: 'Book Appointment | Vivid Nails',
   description: 'Book your nail appointment online. Choose from 48+ services, pick your technician, and select your preferred time.',
 };
 

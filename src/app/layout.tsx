@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Van Nails | Premium Nail Salon',
+  title: 'Vivid Nails | Premium Nail Salon',
   description:
     'Premium nail care and spa services. Manicures, pedicures, acrylics, gel, dip powder, and more. Book your appointment today!',
 };

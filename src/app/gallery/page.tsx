@@ -4,7 +4,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export const metadata: Metadata = {
-  title: 'Gallery | Van Nails',
+  title: 'Gallery | Vivid Nails',
   description: 'Browse our nail art gallery showcasing our latest designs and trends.',
 };
 

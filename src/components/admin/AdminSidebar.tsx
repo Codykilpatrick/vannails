@@ -25,7 +25,7 @@ export default function AdminSidebar() {
   const sidebarContent = (
     <>
       <Link href="/admin" className="text-xl font-bold text-primary mb-10" onClick={() => setMobileOpen(false)}>
-        Van Nails Admin
+        Vivid Nails Admin
       </Link>
 
       <nav className="flex-1 space-y-2">
@@ -79,7 +79,7 @@ export default function AdminSidebar() {
     <>
       {/* Mobile top bar */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-40 bg-dark flex items-center justify-between px-4 py-3">
-        <span className="text-lg font-bold text-primary">Van Nails Admin</span>
+        <span className="text-lg font-bold text-primary">Vivid Nails Admin</span>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="text-white p-2"

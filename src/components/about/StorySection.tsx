@@ -30,7 +30,7 @@ export default function StorySection() {
             </h2>
             <div className="space-y-4 text-dark/70 leading-relaxed">
               <p>
-                Van Nails was born from a simple dream: to create a space where beauty and
+                Vivid Nails was born from a simple dream: to create a space where beauty and
                 relaxation come together. What started as a small salon has grown into a
                 beloved destination for nail care in the Culpeper community.
               </p>
